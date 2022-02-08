@@ -21,5 +21,10 @@ module.exports = mongoose.model('items', {
   time: {
     type: String,
     required: true
+  },
+  quantity: {
+    type: Number,
+    default: 1,
+    required: true
   }
 })
