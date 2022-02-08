@@ -13,7 +13,7 @@ module.exports = mongoose.model('orders', {
   },
   menu_item: {
     type: ObjectId,
-    ref: 'menu-items',
+    ref: 'menu',
     required: true
   },
   total: {
