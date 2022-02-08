@@ -48,6 +48,10 @@ require('./express-sessions')(app)
 
 // ::::
 // Create your routes here
+app.use('/', require('./controllers/index'))
+app.use('/menu', require('./controllers/menu'))
+app.use('/shoppingcart', require('./controllers/shoppingcart'))
+app.use('/user', require('./controllers/user'))
 // ::::
 
 // Catch 404 and forward to error handler
