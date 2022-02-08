@@ -6,10 +6,10 @@ const router = express.Router()
 //const Payment = require('../models/payment')
 
 // Create GET controller
-router.get('/cart', (req, res) => {
+router.get('/shoppingcart', (req, res) => {
   try {
     //console.log(req.user)
-    res.redirect('/cart')
+    res.redirect('/shoppingcart')
   } catch (err) {
     next(err)
   }

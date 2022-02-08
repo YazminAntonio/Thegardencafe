@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const ObjectId = mongoose.Schema.Types.ObjectId
+//const ObjectId = mongoose.Schema.Types.ObjectId
 
 // Create the results moodel
 module.exports = mongoose.model('users', {
@@ -7,12 +7,15 @@ module.exports = mongoose.model('users', {
     type: String,
     required: true
   },
-  password: {
-    type: ObjectId,
-    ref: 'user in google' //preguntar como se hace eso
+  google_id: {
+    type: String
+    //ref: 'user in google' //preguntar como se hace eso
   },
   email: {
     type: String,
     required: true
+  },
+  stripe_id: {
+    type: String
   }
 })

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const ObjectId = mongoose.Schema.Types.ObjectId
 
-module.exports = mongoose.model('menu', {
+module.exports = mongoose.model('items', {
   name: {
     type: String,
     required: true

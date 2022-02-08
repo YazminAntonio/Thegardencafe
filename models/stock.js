@@ -2,9 +2,9 @@ const mongoose = require('mongoose')
 const ObjectId = mongoose.Schema.Types.ObjectId
 
 module.exports = mongoose.model('stock', {
-  stock_item: {
+  item: {
     type: ObjectId,
-    ref: 'menu',
+    ref: 'items',
     required: true
   },
   count: {
