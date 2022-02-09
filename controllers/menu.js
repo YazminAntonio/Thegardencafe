@@ -9,12 +9,12 @@ router.get('/', async (req, res, next) => {
   try {
     // if is breakfast, luch or dinner display the menu according to the time
     // Find all items that are available at this time and stock is > 0
-    // let items = ....
-    // let stock = Stock.find(req.stock.count)
+
+    let items = await Items.find(req.body)
+    //console.log(items)
     // if (stock >= 1) {
-    //   let items = Items.find({})
-    //  res.render('menu', { items })
-    res.render('menu')
+    res.render('menu', { items })
+    //res.render('menu')
     // } else {
     //   res.render('we are out of stock')
     //}
