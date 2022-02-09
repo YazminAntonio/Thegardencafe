@@ -4,7 +4,7 @@ const router = express.Router()
 
 // Create POST controller
 router.get('/', (req, res) => {
-  res.redirect('home')
+  res.render('home')
 })
 
 // Export module
