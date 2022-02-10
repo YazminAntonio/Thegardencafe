@@ -5,7 +5,7 @@
 
 <div class="container">
 <form>
-	<button name="cart" class="btn btn-outline-secondary" onclick="addItems()">Cart</button>
+	<button name="cart" class="btn btn-outline-secondary" onclick="count()"><i class="fa-solid fa-basket-shopping"></i>cart</button>
 </form>
 </div>
 <div class="container">
@@ -19,7 +19,7 @@
 		<div class="col-md-8">
 			<div class="card-body">
 				<h5 class="card-title">{{item.name}}</h5>
-				<i class="fas fa-map-marker-alt"></i>
+
 				<p class="card-text mt-2">
 					{{item.description}}
 				</p><small>${{item.price}}</small>
