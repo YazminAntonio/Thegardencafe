@@ -26,6 +26,9 @@ const order = item => {
 //the legth of the array
 // funtion takes id go localstore and find the item
 // return cart
+const addItems = order => {
+  console.log(order.lenght)
+}
 
 // let shoppingcart = []
 // item.forEach(e => {

@@ -1,9 +1,14 @@
 
+
 <h1 class="position-absolute top-0 start-50 translate-middle-x
 ">Menu</h1>
 
 <div class="container">
-
+<form>
+	<button name="cart" class="btn btn-outline-secondary" onclick="addItems()">Cart</button>
+</form>
+</div>
+<div class="container">
 {{#each items as |item|}}
 <hr>
 <div class="card mb-3 mt-2" style="max-width: 1000px;">
