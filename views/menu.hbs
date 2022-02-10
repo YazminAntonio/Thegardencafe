@@ -18,7 +18,7 @@
 				<p class="card-text mt-2">
 					{{item.description}}
 				</p><small>${{item.price}}</small>
-					<button onclick="addItems({{item}})" class="btn btn-outline-secondary">
+					<button name="add" onclick= "order('{{item._id}}')" class="btn btn-outline-secondary">
 						Add
 					</button>
 			</div>
