@@ -4,10 +4,10 @@ const order = item => {
   list.push(item)
   localStorage.setItem('list', JSON.stringify(list))
   console.log(list)
-  if (localStorage.getItem('list') === null) {
-    console.log(0)
-  } else return
-  let numberItems = order.length
+
+  let numberItems = list.length
   console.log(numberItems)
+  document.getElementById('cart').innerHTML = numberItems
   //the legth of the array
 }
+localStorage.clear()

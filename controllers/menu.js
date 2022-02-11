@@ -4,43 +4,16 @@ const router = express.Router()
 const Items = require('../models/items')
 
 // Create POST controller
-// router.get('/', async (req, res, next) => {
-//   try {
-//     let items = await Items.find({
-//       time: req.query.search
-//     })
-//     let breakfast_items = items.filter(e => e.time == 'breakfast')
-//     let lunch_items = items.filter(e => e.time == 'lunch')
-//     let allday_items = items.filter(e => e.time == 'allday')
-//
-//     if (req.query.time >= 0900 && req.query.time <= 12:00) {
-//       res.render('menu', { breakfast_items })
-//     } else {
-// 			if ( req.query.time >= 12.01 && req.query.time <= 1600) {
-//       res.render('menu', { lunch_items })
-//     } else
-// 			if ( req.query.time >= 0900 && <= 2100){
-// 	     res.render('menu', { allday_items })
-// 	    }  else
-// 				{
-// 	      throw new Error('Sorry not open at that time!')
-// 	    	}
-// 			}
-// 	}
-//  }catch (err) {
-//     next(err)
-//   }
-// })
 //aqui inicia mi codigo de get
 router.get('/', async (req, res, next) => {
   try {
     let items = await Items.find({
-      time: req.query.time,
-      pickuptime: req.query.pickuptime
+      $or: [{ time: req.query.time }, { time: 'allday' }]
     })
-
     console.log(items)
-    res.render('menu', { items })
+    res.render('menu', {
+      items
+    })
 
     //res.render('menu')
     // } else {

@@ -1,27 +1,21 @@
-<!-- <div class="bg-success bg-opacity-75"> -->
-<style >
-  body {
-    /* background-image: url('https://us.123rf.com/450wm/kesu87/kesu872004/kesu87200400099/144519148-fondo-de-comida-asiática-con-varios-ingredientes-sobre-fondo-de-madera-rústica-vista-superior-.jpg?ver=6'); */
-		background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity)) !important;
-		--bs-bg-opacity: 0.5;
-  }
-</style>
-<div class="position-absolute top-50 start-50 translate-middle">
-<a href="/menu"><h1 class="fs-5 mb-4">Welcome to the garden cafe</h1></a>
 
-<form action="/menu" method="get" >
-
-			<select class="form-select" name="time">
-        <option selected name="selectmenu">Select menu</option>
-        <option value="breakfast" name="breakfast">Breakfast</option>
-        <option value="lunch"name="lunch">Lunch</option>
-				<option value="allday"name="allday">All Day</option>
-      </select>
-			<label class="container">Pick up Time</label>
-			<input type="time" class="form-select" name="pickuptime"></input>
-
-	  <button class="btn btn-light container" onclick="">ORDER NOW</button>
-
+<div class="card position-absolute top-50 start-50 translate-middle" style="width: 100%;">
+  <img src="https://us.123rf.com/450wm/kesu87/kesu872004/kesu87200400099/144519148-fondo-de-comida-asiática-con-varios-ingredientes-sobre-fondo-de-madera-rústica-vista-superior-.jpg?ver=6" class="card-img-top" >
+  <div class="card-body ">
+    <h1 class="card-title text-center">WELCOME</h1>
+		<h2 class="card-text text-center">THE GARDEN CAFE</h2>
+  </div>
+	<form action="/menu" method="get">
+		<div class="card-body">
+<div class="container">
+    <input type="radio" name="time" value="breakfast"><label class="m-2">Breakfast</label><label class="m-2 ">9:00am - 12:00pm</label>
+	</div>
+	<div class="container">
+    <input type="radio" name="time" value="lunch"><label class="m-2">Lunch    </label> <label class="m-2">12:00pm - 16:00pm</label></div>
+		<div class="container">
+    <input  type="radio" name="time"value="dinner"><label class="m-2">Dinner   </label><label class="m-2">16:00pm - 21:00pm</label>
+  </div>
+	<button class="btn btn-outline-success container mt-4" onclick="">ORDER NOW</button>
 </form>
+  </div>
 </div>
-<!-- </div> -->

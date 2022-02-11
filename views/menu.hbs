@@ -1,34 +1,30 @@
-
-
-<h1 class="position-absolute top-0 start-50 translate-middle-x
-">Menu</h1>
-
-<div class="container">
-<form>
-	<button name="cart" class="btn btn-outline-secondary" onclick="{{numberItems}}"><i class="fa-solid fa-basket-shopping"></i>cart</button>
-</form>
+<div>
+<nav class="navbar fixed-top navbar-light bg-light bg-success p-2 text-dark bg-opacity-50">
+  <div class="container-fluid">
+		<h1 class="navbar-brand fs-1">Menu</h1>
+    <form class="d-flex"  action="/shoppingcart" method="get">
+      <button  class="btn btn-outline-success" id="cart" onclick="displayitems()">Cart<i class="fa-regular fa-cart-shopping"></i></button>
+    </form>
+  </div>
+</nav>
 </div>
-<div class="container">
-{{#each items as |item|}}
-<hr>
-<div class="card mb-3 mt-2" style="max-width: 1000px;">
-	<div class="row g-0">
-		<div class="col-md-4">
-			<img src="{{item.photo}}" class="img-fluid rounded-start" />
-		</div>
-		<div class="col-md-8">
-			<div class="card-body">
-				<h5 class="card-title">{{item.name}}</h5>
 
-				<p class="card-text mt-2">
-					{{item.description}}
-				</p><small>${{item.price}}</small>
-					<button name="add" onclick= "order('{{item._id}}')" class="btn btn-outline-secondary">
+
+{{#each items as |item|}}
+
+<div class="card" style="width: 100%">
+  <img src="{{item.photo}}" class="card-img-top img-fluid" />
+  <div class="card-body">
+    <h5 class="card-title">{{item.name}}</h5>
+    <p class="card-text">{{item.description}}</p>
+	</div>
+
+					<div class="card text-end m-2">
+						<p class="card-text">${{item.price}}</p>
+					<button name="add" onclick= "order('{{item._id}}')" class="btn btn-outline-success">
 						Add
 					</button>
-			</div>
-		</div>
-	</div>
+				</div>
 </div>
+
 {{/each}}
-</div>
