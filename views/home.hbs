@@ -8,11 +8,20 @@
 </style>
 <div class="position-absolute top-50 start-50 translate-middle">
 <a href="/menu"><h1 class="fs-5 mb-4">Welcome to the garden cafe</h1></a>
-</div>
-<form action="/menu" method="get">
 
-		<input type="time" step="3600000" name="time" />
-	  <button class="btn btn-light">ORDER NOW</button>
-	
+<form action="/menu" method="get" >
+
+			<select class="form-select" name="time">
+        <option selected name="selectmenu">Select menu</option>
+        <option value="breakfast" name="breakfast">Breakfast</option>
+        <option value="Lunch"name="lunch">Lunch</option>
+				<option value="allday"name="allday">All Day</option>
+      </select>
+			<label class="container">Pick up Time</label>
+			<input type="time" class="form-select" name="pickuptime"></input>
+
+	  <button class="btn btn-light container" onclick="">ORDER NOW</button>
+
 </form>
+</div>
 <!-- </div> -->

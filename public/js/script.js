@@ -7,7 +7,7 @@ const order = item => {
   if (localStorage.getItem('list') === null) {
     console.log(0)
   } else return
-  console.log(order.lenght)
+  let numberItems = order.lenght.value
+  return numberItems
+  //the legth of the array
 }
-//the legth of the array
-console.log(order.lengt)
