@@ -1,26 +1,21 @@
-<div>Shopping Cart</div>
-{{#each Menu as |item|}}
-<div class="card mb-3 mt-2" style="max-width: 1000px;">
-	<div class="row g-0">
-		<div class="col-md-4">
-			<img src="{{item.photo}}" class="img-fluid rounded-start" />
-		</div>
-		<div class="col-md-8">
-			<div class="card-body">
-				<h5 class="card-title">{{item.name}}</h5>
-				<i class="fas fa-map-marker-alt"></i>
-				<small>${{item.price}}</small>
-				<p class="card-text mt-2">
-					{{item.description}}
-				</p>
-				<form action="/houses/{{item._id}}/edit" method="get">
-					<button class="btn btn-outline-secondary">
-						Add
-					</button>
-				</form>
+<div>Shopping Cart!</div>
+<ul>
+	<div id=itemsList>
+		{{#each items as |item|}}
+		<div class="card" id="_{{item._id}}" style="width: 100%">
+		  <img src="{{item.photo}}" class="card-img-top img-fluid" />
+		  <div class="card-body">
+		    <h5 class="card-title">{{item.name}}</h5>
+		    <p class="card-text">{{item.description}}</p>
+			</div>
+			<div class="card text-end m-2">
+					<p class="card-text card-qty">0</p>
+					<p class="card-text" >${{item.price}}</p>
 			</div>
 		</div>
+		{{/each}}
 	</div>
-</div>
-{{/each}}
-</div>
+</ul>
+<form>
+	<button class="btn btn-outline-success fixed-bottom">Login width Google</button>
+</form>

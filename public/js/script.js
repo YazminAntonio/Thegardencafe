@@ -18,13 +18,15 @@ const order = item => {
   let list = JSON.parse(localStorage.getItem('list')) || []
   list.push(item)
   localStorage.setItem('list', JSON.stringify(list))
-  console.log(list)
+  //console.log(list)
 
-  let numberItems = list.length
-  console.log(numberItems)
-  document.getElementById('cart').innerHTML = numberItems
-  //the legth of the array
   showCartContent()
 }
-localStorage.clear()
+
 showCartContent()
+
+// localStorage.clear()
+
+// let cart = document.querySelector('#cart')
+// let list = JSON.parse(localStorage.getItem('list')) || []
+// list
