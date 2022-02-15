@@ -1,5 +1,5 @@
 const passport = require('passport')
-const LocalStrategy = require('passport-local').Strategy
+const GoogleStrategy = require('passport-google-oauth2').Strategy
 const session = require('express-session')
 const MongoDBStore = require('connect-mongodb-session')(session)
 const Users = require('./models/users')
@@ -14,16 +14,27 @@ module.exports = app => {
   })
 
   passport.use(
-    new LocalStrategy((email, password, done) => {
-      process.nextTick(async () => {
-        let user = await Users.findOne({ email: email })
-        if (user) {
+    new GoogleStrategy(
+      {
+        clientID: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        callbackURL: '/user/google'
+      },
+      (accessToken, refreshToken, profile, done) => {
+        process.nextTick(async () => {
+          console.log({ profile })
+          let user = await Users.findOne({ google_id: profile.id })
+          if (!user) {
+            user = await Users.create({
+              email: profile.email,
+              google_id: profile.id,
+              name: profile.displayName
+            })
+          }
           return done(null, user)
-        } else {
-          return done(null, false, 'user not found')
-        }
-      })
-    })
+        })
+      }
+    )
   )
 
   const sessionStore = new MongoDBStore({
