@@ -23,30 +23,62 @@ const order = item => {
 showCartContent()
 
 const qtyOfItems = () => {
+  // list of IDs
   let list = JSON.parse(localStorage.getItem('list')) || []
-  //console.log(list)
-  list.sort()
-  let unicosElementos = []
-  let almacenadorDeVecesRepetidos = []
-  let contador = 1
-
-  for (let i = 0; i < list.length; i++) {
-    if (list[i + 1] === list[i]) {
-      contador++
+  console.log({ list })
+  // Make array of unique IDs and count
+  let uniqueIDs = []
+  list.forEach((id, i) => {
+    let idFound = uniqueIDs.find(e => e.id == id)
+    if (idFound) {
+      idFound.count += 1
     } else {
-      unicosElementos.push(list[i])
-      almacenadorDeVecesRepetidos.push(contador)
-      contador = 1
+      uniqueIDs.push({
+        id: id,
+        count: 1
+      })
     }
-  }
-  for (let j = 0; j < unicosElementos.length; j++) {
-    console.log(
-      'El valor ' +
-        unicosElementos[j] +
-        'se repite ' +
-        almacenadorDeVecesRepetidos[j]
-    )
-  }
+  })
+  console.log({ uniqueIDs })
+  // Find HTML Elements
+  let itemsQtyHTML = document.querySelectorAll('#card-qty')
+  // Assing value
+  itemsQtyHTML.forEach((item, i) => {
+    item.innerHTML = uniqueIDs[i].count
+  })
+  //console.log(list)
+  // list.sort()
+  // let almacenadorDeVecesRepetidos = []
+  // let contador = 1
+  //
+  // for (let i = 0; i < list.length; i++) {
+  //   if (list[i + 1] === list[i]) {
+  //     contador++
+  //   } else {
+  //     uniqueIDs.push(list[i])
+  //     almacenadorDeVecesRepetidos.push(contador)
+  //     contador = 1
+  //   }
+  // }
+  // console.log({ uniqueIDs })
+  // for (let j = 0; j < uniqueIDs.length; j++) {
+  //   // console.log(
+  //   //   'the Item ' + uniqueIDs[j] + 'qty ' + almacenadorDeVecesRepetidos[j]
+  //   // )
+  //   console.log({ almacenadorDeVecesRepetidos })
+  // }
+  // let itemsqty = document.querySelectorAll('#card-qty')
+  // console.log({ itemsqty })
+  // // list.forEach(uniqueIDs[j] => {
+  // almacenadorDeVecesRepetidos.forEach((qty, i) => {
+  //   itemsqty.forEach(e => {
+  //     console.log({ qty })
+  //     e.innerHTML = qty
+  //   })
+  //   console.log(itemsqty)
+  // })
+
+  // })
 }
 
 qtyOfItems()
