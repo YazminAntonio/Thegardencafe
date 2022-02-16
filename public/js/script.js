@@ -46,39 +46,5 @@ const qtyOfItems = () => {
   itemsQtyHTML.forEach((item, i) => {
     item.innerHTML = uniqueIDs[i].count
   })
-  //console.log(list)
-  // list.sort()
-  // let almacenadorDeVecesRepetidos = []
-  // let contador = 1
-  //
-  // for (let i = 0; i < list.length; i++) {
-  //   if (list[i + 1] === list[i]) {
-  //     contador++
-  //   } else {
-  //     uniqueIDs.push(list[i])
-  //     almacenadorDeVecesRepetidos.push(contador)
-  //     contador = 1
-  //   }
-  // }
-  // console.log({ uniqueIDs })
-  // for (let j = 0; j < uniqueIDs.length; j++) {
-  //   // console.log(
-  //   //   'the Item ' + uniqueIDs[j] + 'qty ' + almacenadorDeVecesRepetidos[j]
-  //   // )
-  //   console.log({ almacenadorDeVecesRepetidos })
-  // }
-  // let itemsqty = document.querySelectorAll('#card-qty')
-  // console.log({ itemsqty })
-  // // list.forEach(uniqueIDs[j] => {
-  // almacenadorDeVecesRepetidos.forEach((qty, i) => {
-  //   itemsqty.forEach(e => {
-  //     console.log({ qty })
-  //     e.innerHTML = qty
-  //   })
-  //   console.log(itemsqty)
-  // })
-
-  // })
 }
-
 qtyOfItems()
