@@ -1,21 +1,48 @@
-<div>Shopping Cart!</div>
-<ul>
-	<div id=itemsList>
+<div>
+	Shopping Cart
+	{{#if user}}
+		<ul class="nav nav-pills">
+			<li class="nav-item">
+				<form action="/shoppingcart" method="get">
+					<button class="btn btn-outline-secondary">
+						{{user.name}}
+					</button>
+				</form>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/user/logout">
+					<button class="btn btn-outline-secondary">
+						Logout
+					</button>
+				</a>
+				<form action="" method="">
+						<p id="payment">
+						</p>
+				</form>
+			</li>
+		</ul>
+			{{else}}
+				<ul class="nav nav-pills">
+			<li class="nav-item">
+				<form action="/user/login" method="post">
+					<button class="btn btn-outline-success ">
+						Login width Google
+					</button>
+				</form>
+			</li>
+				</ul>
+		{{/if}}
+</div>
+
 		{{#each items as |item|}}
-		<div class="card" id="_{{item._id}}" style="width: 100%">
-		  <img src="{{item.photo}}" class="card-img-top img-fluid" />
+		<div class="card mt-2" id="_{{item._id}}" style="width: 100%">
+		  <a href='/menu/{{item._id}}'><img src="{{item.photo}}" class="card-img-top img-fluid" /></a>
 		  <div class="card-body">
 		    <h5 class="card-title">{{item.name}}</h5>
-		    <p class="card-text">{{item.description}}</p>
 			</div>
-			<div class="card text-end m-2">
-					<p class="card-text card-qty">0</p>
-					<p class="card-text" >${{item.price}}</p>
+			<div class="card text-end m-2 border border-white">
+					<p class="card-text" id="price" value="{{item.price}}">${{item.price}}</p>
+					<p class="card-text" id="card-qty"/>0</p>
 			</div>
 		</div>
 		{{/each}}
-	</div>
-</ul>
-<form>
-	<button class="btn btn-outline-success fixed-bottom">Login width Google</button>
-</form>

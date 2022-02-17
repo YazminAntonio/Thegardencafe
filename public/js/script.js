@@ -25,7 +25,7 @@ showCartContent()
 const qtyOfItems = () => {
   // list of IDs
   let list = JSON.parse(localStorage.getItem('list')) || []
-  console.log({ list })
+  //console.log({ list })
   // Make array of unique IDs and count
   let uniqueIDs = []
   list.forEach((id, i) => {
@@ -48,3 +48,24 @@ const qtyOfItems = () => {
   })
 }
 qtyOfItems()
+
+const payment = () => {
+  // list of IDs
+  let list = JSON.parse(localStorage.getItem('list')) || []
+  // get the long of the list
+  let buttonpayment = list.length
+  // put the payment button inside que number of itemsList
+  document.getElementById(
+    'payment'
+  ).innerHTML += `<button class="btn btn-outline-success">Total ${buttonpayment} Payment</button>`
+}
+payment()
+// const total = array => {
+//   return array.reduce((a, b) => a - b)
+// }
+// const total = () => {
+//   //let prices = document.querySelectorAll('#price').value
+//   // let allPrices = prices.innerHTML
+//   // list of IDs
+//   console.log({ prices })
+// }
