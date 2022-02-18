@@ -39,7 +39,7 @@ const qtyOfItems = () => {
       })
     }
   })
-  console.log({ uniqueIDs })
+  //console.log({ uniqueIDs })
   // Find HTML Elements
   let itemsQtyHTML = document.querySelectorAll('#card-qty')
   // Assing value
@@ -60,12 +60,36 @@ const payment = () => {
   ).innerHTML += `<button class="btn btn-outline-success">Total ${buttonpayment} Payment</button>`
 }
 payment()
-// const total = array => {
-//   return array.reduce((a, b) => a - b)
-// }
-// const total = () => {
-//   //let prices = document.querySelectorAll('#price').value
-//   // let allPrices = prices.innerHTML
-//   // list of IDs
-//   console.log({ prices })
-// }
+
+const paymentTotal = () => {
+  let elemsqty = document.querySelectorAll('#price')
+  let valuesqty = []
+  elemsqty.forEach(e => {
+    valuesqty.push(e.innerHTML)
+  })
+  valuesqty = valuesqty.map(e => {
+    // do something with e
+    e = e.split('')[1]
+    return Number(e)
+  })
+  let list = JSON.parse(localStorage.getItem('list')) || []
+  let uniqueIDs = []
+  list.forEach((id, i) => {
+    let idFound = uniqueIDs.find(e => e.id == id)
+    if (idFound) {
+      idFound.count += 1
+    } else {
+      uniqueIDs.push({
+        id: id,
+        count: 1
+      })
+    }
+  })
+  uniqueIDs = uniqueIDs.map(a => {
+    let q = a.count
+    return q
+  })
+  console.log(valuesqty)
+  console.log(uniqueIDs)
+}
+paymentTotal()
