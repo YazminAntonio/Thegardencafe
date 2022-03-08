@@ -50,18 +50,6 @@ const qtyOfItems = () => {
 qtyOfItems()
 
 const payment = () => {
-  // list of IDs
-  let list = JSON.parse(localStorage.getItem('list')) || []
-  // get the long of the list
-  let buttonpayment = list.length
-  // put the payment button inside que number of itemsList
-  document.getElementById(
-    'payment'
-  ).innerHTML += `<button class="btn btn-outline-success">Total ${buttonpayment} Payment</button>`
-}
-payment()
-
-const paymentTotal = () => {
   let elemsqty = document.querySelectorAll('#price')
   let valuesqty = []
   elemsqty.forEach(e => {
@@ -72,7 +60,10 @@ const paymentTotal = () => {
     e = e.split('')[1]
     return Number(e)
   })
+  //console.log(valuesqty)
+  // list of IDs
   let list = JSON.parse(localStorage.getItem('list')) || []
+  //console.log(list)
   let uniqueIDs = []
   list.forEach((id, i) => {
     let idFound = uniqueIDs.find(e => e.id == id)
@@ -85,11 +76,19 @@ const paymentTotal = () => {
       })
     }
   })
+
   uniqueIDs = uniqueIDs.map(a => {
     let q = a.count
     return q
   })
-  console.log(valuesqty)
-  console.log(uniqueIDs)
+
+  let totalQty = valuesqty.map((n, i) => n * uniqueIDs[i])
+  //console.log(totalQty)
+  let totalPrice = totalQty.reduce((t, i) => t + i)
+  //console.log(totalPrice)
+
+  document.getElementById(
+    'payment'
+  ).innerHTML += `<button class ="btn btn-outline-success">Total ${totalPrice} </button>`
 }
-paymentTotal()
+payment()

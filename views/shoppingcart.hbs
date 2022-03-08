@@ -9,17 +9,6 @@
 					</button>
 				</form>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="/user/logout">
-					<button class="btn btn-outline-secondary">
-						Logout
-					</button>
-				</a>
-				<form action="" method="">
-						<p id="payment">
-						</p>
-				</form>
-			</li>
 		</ul>
 			{{else}}
 				<ul class="nav nav-pills">
@@ -32,6 +21,10 @@
 			</li>
 				</ul>
 		{{/if}}
+			<form action="" method="">
+					<p id="payment">
+					</p>
+			</form>
 </div>
 
 		{{#each items as |item|}}
@@ -40,7 +33,7 @@
 		  <div class="card-body">
 		    <h5 class="card-title">{{item.name}}</h5>
 			</div>
-			<div class="card text-end m-2 border border-white">
+			<div class="card text-end m-2 border border-white">{{#each array}} {{@index}}: {{this}} {{/each}}
 					<p class="card-text" id="price" value="{{item.price}}">${{item.price}}</p>
 					<p class="card-text" id="card-qty"/>0</p>
 			</div>
