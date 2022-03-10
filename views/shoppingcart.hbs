@@ -1,5 +1,6 @@
 <div>
 	Shopping Cart
+
 	{{#if user}}
 		<ul class="nav nav-pills">
 			<li class="nav-item">
@@ -8,6 +9,11 @@
 						{{user.name}}
 					</button>
 				</form>
+				
+						<p id="payment">
+						</p>
+
+				<button class="btn btn-outline-secondary" >Logout</button>
 			</li>
 		</ul>
 			{{else}}
@@ -18,13 +24,13 @@
 						Login width Google
 					</button>
 				</form>
+				<form action="" method="">
+						<p id="payment">
+						</p>
+				</form>
 			</li>
 				</ul>
 		{{/if}}
-			<form action="" method="">
-					<p id="payment">
-					</p>
-			</form>
 </div>
 
 		{{#each items as |item|}}
